@@ -1,4 +1,4 @@
-def ler_numeros_do_arquivo_txt(nome_do_arquivo):
+def ler_txt(nome_do_arquivo):
     numeros = []
     with open(nome_do_arquivo, 'r') as arquivo_txt:
         for linha in arquivo_txt:
@@ -21,7 +21,7 @@ def insertion_sort(arr):
 
 
 txt = '1000_numbers.txt'
-numbers_array = ler_numeros_do_arquivo_txt(txt)
+numbers_array = ler_txt(txt)
 
 print("Array original:", numbers_array)
 arrayorganizada = insertion_sort(numbers_array)

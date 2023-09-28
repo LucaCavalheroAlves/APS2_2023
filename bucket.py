@@ -3,7 +3,7 @@ import math
 # Função para ler números de um arquivo de texto e retornar uma lista de inteiros
 
 
-def ler_numeros_do_arquivo_txt(nome_do_arquivo):
+def ler_txt(nome_do_arquivo):
     numeros = []
     with open(nome_do_arquivo, 'r') as arquivo_txt:
         for linha in arquivo_txt:
@@ -41,7 +41,7 @@ def bucket_sort(arr):
 nome_do_arquivo = "1000_numbers.txt"
 
 # Chama a função para ler os números do arquivo e armazená-los em 'arr'
-arr = ler_numeros_do_arquivo_txt(nome_do_arquivo)
+arr = ler_txt(nome_do_arquivo)
 
 # Chama a função de ordenação Bucket Sort
 sorted_arr = bucket_sort(arr)

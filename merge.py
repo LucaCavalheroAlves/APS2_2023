@@ -1,30 +1,16 @@
 # Função para ler números de um arquivo de texto e retornar uma lista de inteiros
-def ler_numeros_do_arquivo_txt(nome_do_arquivo):
+def ler_txt(nome_do_arquivo):
     numeros = []
     with open(nome_do_arquivo, 'r') as arquivo_txt:
         for linha in arquivo_txt:
             # Converte a linha em um inteiro
             numeros.append(int(linha.strip()))
     return numeros
+# Função que combina as duas metades ordenadas em um único array
 
-# Função de ordenação Merge Sort
 
+def merged(metadeL, metadeR):
 
-def merge_sort(arr):
-    # Caso base: se o array tiver 0 ou 1 elemento, ele já está ordenado
-    if len(arr) <= 1:
-        return arr
-
-    # Divide o array ao meio
-    mid = len(arr) // 2
-    metadeL = arr[:mid]
-    metadeR = arr[mid:]
-
-    # Chama a função merge_sort recursivamente para as duas metades
-    metadeL = merge_sort(metadeL)
-    metadeR = merge_sort(metadeR)
-
-    # Combina as duas metades ordenadas em um único array
     merged = []
     L, R = 0, 0
 
@@ -43,11 +29,31 @@ def merge_sort(arr):
     return merged
 
 
+# Função de ordenação Merge
+
+
+def merge_sort(arr):
+    # Caso base: se o array tiver 0 ou 1 elemento, ele já está ordenado
+    if len(arr) <= 1:
+        return arr
+
+    # Divide o array ao meio
+    mid = len(arr) // 2
+    metadeL = arr[:mid]
+    metadeR = arr[mid:]
+
+    # Chama a função merge_sort recursivamente para as duas metades
+    metadeL = merge_sort(metadeL)
+    metadeR = merge_sort(metadeR)
+    # Chama a função merged pra combinar as duas metades
+    return merged(metadeL, metadeR)
+
+
 # Nome do arquivo de texto a ser lido
 txt = '1000_numbers.txt'
 
 # Chama a função para ler os números do arquivo e armazená-los em 'numbers_array'
-arr = ler_numeros_do_arquivo_txt(txt)
+arr = ler_txt(txt)
 
 # Imprime a lista original antes da ordenação
 print("\nLista antes da ordenação:", arr)
