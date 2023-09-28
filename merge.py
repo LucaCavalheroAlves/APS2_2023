@@ -3,7 +3,7 @@ def ler_numeros_do_arquivo_txt(nome_do_arquivo):
     numeros = []
     with open(nome_do_arquivo, 'r') as arquivo_txt:
         for linha in arquivo_txt:
-            # Converte a linha em um inteiro e a adiciona à lista 'numeros'
+            # Converte a linha em um inteiro
             numeros.append(int(linha.strip()))
     return numeros
 
