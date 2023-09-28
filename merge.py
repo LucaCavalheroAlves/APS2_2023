@@ -1,14 +1,30 @@
+# Função para ler números de um arquivo de texto e retornar uma lista de inteiros
+def ler_numeros_do_arquivo_txt(nome_do_arquivo):
+    numeros = []
+    with open(nome_do_arquivo, 'r') as arquivo_txt:
+        for linha in arquivo_txt:
+            # Converte a linha em um inteiro e a adiciona à lista 'numeros'
+            numeros.append(int(linha.strip()))
+    return numeros
+
+# Função de ordenação Merge Sort
+
+
 def merge_sort(arr):
+    # Caso base: se o array tiver 0 ou 1 elemento, ele já está ordenado
     if len(arr) <= 1:
         return arr
 
+    # Divide o array ao meio
     mid = len(arr) // 2
     metadeL = arr[:mid]
     metadeR = arr[mid:]
 
+    # Chama a função merge_sort recursivamente para as duas metades
     metadeL = merge_sort(metadeL)
     metadeR = merge_sort(metadeR)
 
+    # Combina as duas metades ordenadas em um único array
     merged = []
     L, R = 0, 0
 
@@ -20,27 +36,24 @@ def merge_sort(arr):
             merged.append(metadeR[R])
             R += 1
 
+    # Adiciona os elementos restantes de ambas as metades, se houver
     merged.extend(metadeL[L:])
     merged.extend(metadeR[R:])
+
     return merged
 
 
-def ler_txt(file_path):
-    numbers = []
-    with open(file_path, 'r') as file:
-        for line in file:
-            line = line.strip()
-            if line.isdigit():
-                numbers.append(int(line))
-    return numbers
+# Nome do arquivo de texto a ser lido
+txt = '1000_numbers.txt'
 
+# Chama a função para ler os números do arquivo e armazená-los em 'numbers_array'
+arr = ler_numeros_do_arquivo_txt(txt)
 
-txt = 'C:\\Users\\lucac\\OneDrive\\workspace\\facul\\lalala.txt'
-numbers_array = ler_txt(txt)
+# Imprime a lista original antes da ordenação
+print("\nLista antes da ordenação:", arr)
 
+# Chama a função de ordenação Merge Sort
+array_ordenada = merge_sort(arr)
 
-print("Lista antes da ordenação:", numbers_array)
-
-
-arrayorganizada = merge_sort(numbers_array)
-print("Lista ordenada:", arrayorganizada)
+# Imprime a lista ordenada
+print("\nLista ordenada:", array_ordenada)
