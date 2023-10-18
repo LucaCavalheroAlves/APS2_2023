@@ -23,7 +23,7 @@ def bucket_sort(arr):
     buckets = [[] for _ in range(len(arr))]
 
     # Calcula o tamanho de intervalo de cada balde
-    divisao_arredondada_cima = math.ceil((max_val - min_val) / len(arr))
+    divisao_arredondada_cima = math.ceil((max_val - min_val) / len(arr)+0.1)
 
     # Coloca cada elemento no balde apropriado
     for num in arr:
